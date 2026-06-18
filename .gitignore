@@ -1,0 +1,15 @@
+node_modules/
+.expo/
+.env
+*.log
+dist/
+build/
+.DS_Store
+ios/Pods/
+android/.gradle/
+android/build/
+assets/data/screener_data.*
+*.db
+*.db.gz
+*.json.gz
+service_account.json
