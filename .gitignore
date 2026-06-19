@@ -13,3 +13,5 @@ assets/data/screener_data.*
 *.db.gz
 *.json.gz
 service_account.json
+android/
+ios/

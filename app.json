@@ -1,54 +1,46 @@
 {
-  "expo": {
-    "name": "NSE Screener",
-    "slug": "nse-screener-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/app-icon.png",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*",
-      "assets/data/**/*"
-    ],
-    "ios": {
-      "supportsTabletMode": true,
-      "bundleIdentifier": "com.kamalg.nsescreen",
-      "buildNumber": "1",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE"
-      ],
-      "package": "com.kamalg.nsescreen",
-      "versionCode": 1
-    },
-    "web": {
-      "favicon": "./assets/images/favicon.png"
-    },
-    "owner": "kamalg89",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "enabled": false
-    },
-    "extra": {
-      "eas": {
-        "projectId": "3fd74125-4644-40e9-9282-3267d7dcf7ab"
-      }
-    }
-  }
+"expo": {
+"name": "NSE Screener",
+"slug": "nse-screener-app",
+"version": "1.0.0",
+"scheme": "nse-screener",
+"orientation": "portrait",
+"icon": "./assets/images/app-icon.png",
+"userInterfaceStyle": "automatic",
+"splash": {
+"image": "./assets/images/splash.png",
+"resizeMode": "contain",
+"backgroundColor": "#ffffff"
+},
+"assetBundlePatterns": ["**/*"],
+"ios": {
+"bundleIdentifier": "com.kamalg.nsescreen"
+},
+"android": {
+"adaptiveIcon": {
+"foregroundImage": "./assets/images/adaptive-icon.png",
+"backgroundColor": "#ffffff"
+},
+"permissions": [
+"android.permission.INTERNET",
+"android.permission.ACCESS_NETWORK_STATE"
+],
+"package": "com.kamalg.nsescreen"
+},
+"web": {
+"favicon": "./assets/images/favicon.png"
+},
+"owner": "kamalg89",
+"runtimeVersion": {
+"policy": "appVersion"
+},
+"updates": {
+"enabled": false
+},
+"extra": {
+"eas": {
+"projectId": "3fd74125-4644-40e9-9282-3267d7dcf7ab"
+}
+}
+}
 }
