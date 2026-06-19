@@ -1,4 +1,7 @@
 {
+  "cli": {
+    "version": ">= 5.0.0"
+  },
   "build": {
     "development": {
       "developmentClient": true,
@@ -9,14 +12,9 @@
     },
     "production": {
       "distribution": "store"
-    },
-    "android": {
-      "preview": {
-        "gradleCommand": ":app:assembleRelease"
-      },
-      "production": {
-        "gradleCommand": ":app:bundleRelease"
-      }
     }
+  },
+  "submit": {
+    "production": {}
   }
 }

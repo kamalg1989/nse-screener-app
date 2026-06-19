@@ -1,0 +1,213 @@
+// app/screener/config/defaults.ts
+
+export const DEFAULTS = {
+  // Entry Technique
+  ENTRY_TICK_OFFSET_MULTIPLIER: 1,
+  TREND_BAR_CLOSE_THRESHOLD: 0.70,
+  PIN_BAR_MAX_BODY_PCT: 0.35,
+  PIN_BAR_MIN_LOWER_WICK_PCT: 0.55,
+  MIN_BAR_RANGE_PCT: 0.005,
+
+  // Pipeline (P1)
+  MIN_DAILY_TURNOVER: 10_00_00_000, // ₹10 cr
+  FUND_MIN_REVENUE_GROWTH: 0.10,
+  FUND_MIN_EARNINGS_GROWTH: 0.10,
+  FUND_MIN_ROE: 0.15,
+  FUND_MIN_ROCE: 0.15, // Changed from ROE
+  FUND_MIN_PROMOTER_HOLDING: 0.40,
+  FUND_MAX_PE: 80,
+  FUND_REQUIRE_POSITIVE_EPS: true,
+
+  IFP_VOL_SURGE_MULTIPLE: 1.5,
+  IFP_UP_DAY_CLOSE_POS_MIN: 0.60,
+  IFP_LOOKBACK_DAYS: 100,
+  IFP_MIN_SCORE: 0.25,
+
+  REGIME_BULLISH_THRESHOLD: 0.60,
+  REGIME_BEARISH_THRESHOLD: 0.30,
+  HARD_STOP_ON_DECLINE: true,
+
+  SKIP_MANUAL: true,
+
+  // Technical Filter (P2)
+  TECH_MAX_BASE_RANGE: 0.20,
+  TECH_VOL_MULT: 0.80,
+  TECH_TREND_ALIGNMENT_MODE: 'medium', // 'strict' | 'medium' | 'loose'
+  TECH_TREND_CROSSBACK_BUFFER: 0.02,
+  TECH_REQUIRE_TREND_ALIGNMENT: true,
+  BASE_LOOKBACK_BARS: 20,
+
+  // Base Quality
+  BASE_MIN_PRIOR_UPMOVE_PCT: 0.15,
+  BASE_PRIOR_UPMOVE_LOOKBACK: 60,
+  BASE_MAX_GIVEBACK_PCT: 0.30,
+  BASE_VOL_DRYUP_MAX_RATIO: 1.3,
+  NEAR_BREAKOUT_MAX_DISTANCE: 0.05,
+  BASE_QUALITY_VERBOSE_LOGS: false,
+
+  // Base Stage Classification
+  BASE_STAGE_LOOKBACK: 250,
+  BASE_MIN_WIDTH_BARS: 10,
+  BASE_BOUNCE_MIN_PCT: 0.10,
+
+  BASE_STAGE_SIZE_MULTIPLIER: {
+    1: 1.0,
+    2: 1.0,
+    3: 0.5,
+    4: 0.25,
+  },
+  BASE_STAGE_DEFAULT_MULTIPLIER: 0.25,
+  BASE_STAGE_MAX_ALLOWED: 4,
+
+  // Target Strategy
+  TARGET_STRATEGY: 'FIXED_R',
+  TARGET_FIXED_R_MULTIPLE: 2.0,
+
+  // Entry Triggers
+  ENABLE_PULLBACK_TRIGGER: false,
+  ENABLE_BREAKOUT_RETEST_TRIGGER: false,
+
+  // GPT & Output
+  USE_GPT_AS_CONFIRMATION_ONLY: true,
+  MAX_ALERTS_PER_RUN: 3,
+
+  // Scheduling
+  AUTO_RUN_ENABLED: false,
+  AUTO_RUN_TIME: '16:00', // 4 PM (market close)
+  AUTO_RUN_FREQUENCY: 'daily', // 'manual' | 'daily' | 'hourly'
+
+  // Backtest
+  BACKTEST_DEFAULT_HINDSIGHT_DAYS: 30,
+  BACKTEST_HINDSIGHT_OPTIONS: [7, 14, 21, 30, 90, 180, 365],
+
+  // UI
+  DARK_MODE: false,
+  THEME_COLOR_PRIMARY: '#2E7D32',
+  THEME_COLOR_DANGER: '#C62828',
+  THEME_COLOR_WARNING: '#F57C00',
+
+  // Data Management
+  DATA_REFRESH_INTERVAL_HOURS: 24,
+  FUNDAMENTALS_REFRESH_DAYS: 7,
+  ALERTS_RETENTION_DAYS: 7,
+
+  // Filters Toggle
+  ENABLE_FUNDAMENTAL_FILTER: true,
+  ENABLE_TECHNICAL_FILTER: true,
+  ENABLE_BASE_QUALITY_FILTER: true,
+
+  // Notifications
+  PUSH_NOTIFICATIONS_ENABLED: true,
+  NOTIFICATION_SOUND: true,
+}
+
+export type ScreenerConfig = typeof DEFAULTS
+
+export const FILTER_GROUPS = {
+  entry: [
+    'ENTRY_TICK_OFFSET_MULTIPLIER',
+    'TREND_BAR_CLOSE_THRESHOLD',
+    'PIN_BAR_MAX_BODY_PCT',
+    'PIN_BAR_MIN_LOWER_WICK_PCT',
+    'MIN_BAR_RANGE_PCT',
+  ],
+  pipeline: [
+    'MIN_DAILY_TURNOVER',
+    'FUND_MIN_REVENUE_GROWTH',
+    'FUND_MIN_EARNINGS_GROWTH',
+    'FUND_MIN_ROE',
+    'FUND_MIN_ROCE',
+    'FUND_MIN_PROMOTER_HOLDING',
+    'FUND_MAX_PE',
+    'FUND_REQUIRE_POSITIVE_EPS',
+    'IFP_VOL_SURGE_MULTIPLE',
+    'IFP_UP_DAY_CLOSE_POS_MIN',
+    'IFP_LOOKBACK_DAYS',
+    'IFP_MIN_SCORE',
+    'REGIME_BULLISH_THRESHOLD',
+    'REGIME_BEARISH_THRESHOLD',
+    'HARD_STOP_ON_DECLINE',
+    'SKIP_MANUAL',
+  ],
+  technical: [
+    'TECH_MAX_BASE_RANGE',
+    'TECH_VOL_MULT',
+    'TECH_TREND_ALIGNMENT_MODE',
+    'TECH_TREND_CROSSBACK_BUFFER',
+    'TECH_REQUIRE_TREND_ALIGNMENT',
+    'BASE_LOOKBACK_BARS',
+  ],
+  baseQuality: [
+    'BASE_MIN_PRIOR_UPMOVE_PCT',
+    'BASE_PRIOR_UPMOVE_LOOKBACK',
+    'BASE_MAX_GIVEBACK_PCT',
+    'BASE_VOL_DRYUP_MAX_RATIO',
+    'NEAR_BREAKOUT_MAX_DISTANCE',
+    'BASE_QUALITY_VERBOSE_LOGS',
+  ],
+  baseStage: [
+    'BASE_STAGE_LOOKBACK',
+    'BASE_MIN_WIDTH_BARS',
+    'BASE_BOUNCE_MIN_PCT',
+    'BASE_STAGE_SIZE_MULTIPLIER',
+    'BASE_STAGE_DEFAULT_MULTIPLIER',
+    'BASE_STAGE_MAX_ALLOWED',
+  ],
+  target: [
+    'TARGET_STRATEGY',
+    'TARGET_FIXED_R_MULTIPLE',
+  ],
+  triggers: [
+    'ENABLE_PULLBACK_TRIGGER',
+    'ENABLE_BREAKOUT_RETEST_TRIGGER',
+  ],
+  gpt: [
+    'USE_GPT_AS_CONFIRMATION_ONLY',
+    'MAX_ALERTS_PER_RUN',
+  ],
+}
+// Add at the END of app/screener/config/defaults.ts
+
+export function getDefaultScreenerConfig(): ScreenerConfig {
+  return {
+    capital: 400000,
+    minDailyTurnover: 10_00_00_000,
+    techTrendAlignmentMode: 'medium',
+    techMaxBaseRange: 0.20,
+    techVolMult: 0.80,
+    techTrendCrossbackBuffer: 0.02,
+    techRequireTrendAlignment: true,
+    baseLookbackBars: 20,
+    baseMinPriorUpmovePct: 0.15,
+    basePriorUpmoveLookback: 60,
+    baseMaxGivebackPct: 0.30,
+    baseVolDryupMaxRatio: 1.3,
+    nearBreakoutMaxDistance: 0.05,
+    baseStageLoopbackBars: 250,
+    baseMinWidthBars: 10,
+    baseBounceminPct: 0.10,
+    baseStageSizeMultiplier: { 1: 1.0, 2: 1.0, 3: 0.5, 4: 0.25 },
+    baseStageMaxAllowed: 4,
+    ifpVolSurgeMultiple: 1.5,
+    ifpUpDayClosePosMin: 0.60,
+    ifpLookbackDays: 100,
+    ifpMinScore: 0.25,
+    targetStrategy: 'FIXED_R',
+    targetFixedRMultiple: 2.0,
+    regimeBullishThreshold: 0.60,
+    regimeBearishThreshold: 0.30,
+    useSimpleRegimeCheck: false,
+    maxAlertsPerRun: 3,
+    enableFundamental: false,
+    enableIFP: true,
+    enableBaseQuality: true,
+    enableBaseStageClassification: true,
+    enablePullbackTrigger: false,
+    enableBreakoutRetestTrigger: false,
+    minBarRangePct: 0.005,
+    pinBarMaxBodyPct: 0.35,
+    pinBarMinLowerWickPct: 0.55,
+    trendBarCloseThreshold: 0.70,
+    entryTickOffsetMultiplier: 1,
+  }
+}
